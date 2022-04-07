@@ -94,4 +94,14 @@ body{
         porque causan que se desborde todo de la GRID, ya que no pueden contener el tamaño*/
         font-size: 0.8rem;
     }
+
+    .btn-info{
+        padding: 0.7em 4em;
+        border: none;
+        border-radius: 0.2em;
+        background-color: rgb(206, 161, 94);
+        position: relative;
+        top: 0.4em;
+    }
+
 }
