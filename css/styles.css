@@ -13,6 +13,13 @@
     box-sizing: border-box;
 }
 
+body{
+    background-image: url('/imgs/background-image.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .gallery{
     margin: 5em auto;
     width: 90%;
@@ -33,6 +40,42 @@
 .card__header{
     width: 100%;
     overflow: hidden;
+    position: relative;
+}
+
+.card__header::after{
+    content: "Hotels in Japan";
+    opacity: .9;
+    text-align: center;
+    background-color: rgb(255, 0, 43);
+    color: var(--card__text--color);
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /*Ponemos en solo top:0, porque como scale(0) le saca las medidas al elemento,
+    entonces no va a funcionar sí usamos top:50%, left:50% y translate(-50%, -50%)
+    entonces top:0 va a centrar al elemento ya que no contiene medidas*/
+    top: 0;
+    /*Ponemos la scale en 0, para que no aparezca el elemento, ya que le saca
+    sus medidas, hasta que le pasemos el hover y lo cambiamos a scale 1*/
+    transform: scale(0);
+    padding: .1em;
+    border-top-left-radius: .3em;
+    border-top-right-radius: .3em;
+    /*Como el pseudo-elemento ::after va a ser el contenedor, es el que va a tener
+    la propiedad transition*/
+    transition: transform .7s;
+    /*Centramos el texto del content vertical y horizontalmente*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__header:hover::after{
+    /*Cuando le pasamos el mouse por encima, le devolvemos la escala original
+    y hacemos que rote en 360°*/
+    transform: scale(1) rotate(360deg);
 }
 
 .card__header img{
