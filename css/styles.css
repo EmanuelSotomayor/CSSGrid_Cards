@@ -13,15 +13,6 @@
     box-sizing: border-box;
 }
 
-body{
-    background: url("../imgs/background-image.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-}
-
 .gallery{
     margin: 5em auto;
     width: 90%;
