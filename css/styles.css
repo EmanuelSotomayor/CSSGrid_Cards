@@ -1,107 +1,111 @@
+:root{
+    --gallery__background--color: #2a2a2c;
+    --card__background--color: #323234;
+    --card__text--color: #ffffff;
+    --text__price--color: #1b1b1d;
+    --icon__hearth--color: #ff0000;
+    --icon__hand-color: rgb(40, 54, 253);;
+}
+
 *{
-    padding:  0;
-    margin:  0;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
-body{
-    background-color: rgba(147, 113, 180, 0.568);
-}
-
-.cards{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.gallery{
+    margin: 5em auto;
     width: 90%;
+    padding: 1em;
     display: grid;
-    grid-template-rows: 600px;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1em;
 }
 
-.cards__item{
-    width: 100%;
-    height: 95%;
-    min-height: 400px;
-    background-color: #FFFFFF;
-    border-radius: 0.5em;
+.card{
+    border-radius: .3em;
+    color: #000000;
+    background-color: var(--card__background--color);
+    box-shadow: #000000;
+    color: var(--card__text--color);
 }
 
 .card__header{
     width: 100%;
-    height: 55%;
+    overflow: hidden;
 }
 
 .card__header img{
+    /*Hacemos que las imagenes sean de tipo bloque para que ocupen todo el espacio
+    y no hayan margenes*/
+    display: block;
+    border-top-left-radius: .2em;
+    border-top-right-radius: .2em;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
-    border-top-left-radius: 0.5em;
-    border-top-right-radius: 0.5em;
 }
 
 .card__body{
-    width: 100%;
-    min-height: 45%;
-    background-color: #FFFFFF;
-    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding: 1.5em;
+    padding: 1em;
 }
 
-.card__body p{
-    font-size: 1.2rem;
-    text-align: left;
+.card__body--text{
+    margin-bottom: 1em;
+    font-size: 1rem;
     line-height: 1.5;
 }
 
-.btn-info{
-    padding: 1em 6em;
-    border: none;
-    border-radius: 0.2em;
-    background-color: rgb(206, 161, 94);
+.card__body--reactions--price{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.btn-info:hover{
-    background-color: transparent;
-    padding: 0.9em 6em;
-    border: 1px solid rgb(206, 161, 94);
+.card__body--reactions--price svg{
+    width: 8%;
 }
 
-@media screen and (max-width: 600px){
-    .cards{
+.price{
+    padding: .7em;
+    font-size: .9rem;
+    background-color: var(--text__price--color);
+    color: var(--card__text--color);
+    border-radius: 1.5em;
+}
+
+.like, .dislike{
+    fill: #FFFFFF;
+}
+
+.like:hover, .dislike:hover{
+    cursor: pointer;
+}
+
+.like:hover{
+    fill: #ff0000;
+}
+
+.dislike:hover{
+    fill: var(--icon__hand-color);
+}
+
+@media screen and (max-width: 852px){
+    .gallery{
         display: grid;
-        gap: 3em;
-        grid-template-rows: repeat(2, 400px);
-        grid-template-columns: 350px;
+        width: 60%;
+        grid-template-columns: 1fr;
     }
+}
 
-    .cards__item{
-        height: 200px;
+@media screen and (max-width: 668px){
+    .gallery{
+        display: grid;
+        width: 80%;
     }
-
-    .card__body{
-        min-height: 50%;
-    }
-
-    .card__body p{
-        /*Hay que manejar el tamaño de las fuentes, además del de los contenedores,
-        porque causan que se desborde todo de la GRID, ya que no pueden contener el tamaño*/
-        font-size: 0.8rem;
-    }
-
-    .btn-info{
-        padding: 0.7em 4em;
-        border: none;
-        border-radius: 0.2em;
-        background-color: rgb(206, 161, 94);
-        position: relative;
-        top: 0.4em;
-    }
-
 }
